@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Via My VA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <h1 class="site-title">Here we are</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="active" id="homeLink">Home</a></li>
+                    <li><a href="#" id="ticketsLink">Tickets</a></li>
+                    <li><a href="#" id="aboutLink">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Home Section -->
+        <section id="homeSection" class="page-section">
+            <div class="welcome-container">
+                <h2>Via My VA</h2>
+                <p>Content creation workflow between creators and assistants</p>
+                <div class="cta-buttons">
+                    <button id="homeTicketsBtn" class="primary-btn">Go to Tickets</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tickets Section (will contain the previous ticket system) -->
+        <section id="ticketsSection" class="page-section hidden">
+            <!-- Login Screen -->
+            <div id="loginScreen" class="auth-container">
+                <h2>Ticket System Login</h2>
+                <div class="auth-form">
+                    <input type="text" id="username" placeholder="Username" />
+                    <input type="password" id="password" placeholder="Password" />
+                    <button id="loginBtn">Login</button>
+                    <p id="loginMessage" class="error-message"></p>
+                </div>
+            </div>
+
+            <!-- Dashboard Screen -->
+            <div id="dashboardScreen" class="dashboard-container hidden">
+                <div class="header">
+                    <h2 id="welcomeMessage"></h2>
+                    <div class="header-buttons">
+                        <button id="backToHomeBtn">Back to Home</button>
+                        <button id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="ticket-actions">
+                        <button id="createTicketBtn">Create New Ticket</button>
+                    </div>
+
+                    <div class="tickets-container">
+                        <h3>Your Tickets</h3>
+                        <div id="ticketsList" class="tickets-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ticket Modal -->
+            <div id="ticketModal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2 id="modalTitle">Create New Ticket</h2>
+                    <div class="ticket-form">
+                        <div class="form-group">
+                            <label for="ticketTitle">Title</label>
+                            <input type="text" id="ticketTitle" />
+                        </div>
+                        
+                        <div class="checkboxes-container">
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="shot" />
+                                <label for="shot">Shot?</label>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="sentToAssistant" />
+                                <label for="sentToAssistant">Sent to assistant?</label>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="cut" />
+                                <label for="cut">Cut</label>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="coverAdded" />
+                                <label for="coverAdded">Cover added</label>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="sentBackToCreator" />
+                                <label for="sentBackToCreator">Sent back to creator</label>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="postedToLTK" />
+                                <label for="postedToLTK">Posted to LTK</label>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="pinned" />
+                                <label for="pinned">Pinned</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button id="saveTicketBtn">Save Ticket</button>
+                            <button id="cancelTicketBtn">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="aboutSection" class="page-section hidden">
+            <h2>About This System</h2>
+            <p>Via My VA was created to help streamline the workflow between content creators and assistants.</p>
+            <p>Use the ticket system to track tasks and their status.</p>
+        </section>
+
+        <footer class="main-footer">
+            <p>&copy; 2025 Via My VA</p>
+        </footer>
+    </div>
+
+    <!-- Add SortableJS from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <script src="main.js"></script>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+<!-- SortableJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+
+<!-- Your JavaScript -->
+<script src="firebase-config.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>

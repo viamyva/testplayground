@@ -1,0 +1,476 @@
+/* Base Styles */
+:root {
+    --primary-color: #9f8f80;
+    --primary-dark: #7d6f62;
+    --secondary-color: #d8cec3;
+    --text-color: #5c4d42;
+    --light-bg: #f5f2ed;
+    --border-color: #e5ded5;
+    --success-color: #b5a99a;
+    --pending-color: #e0d5c9;
+    --error-color: #c9b1a8;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    color: var(--primary-dark);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--primary-dark);
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.error-message {
+    color: #e53e3e;
+    margin-top: 10px;
+}
+
+/* Main Header and Navigation */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.site-title {
+    margin-bottom: 0;
+    font-size: 1.8rem;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav li {
+    margin-left: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Page Sections */
+.page-section {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    padding: 30px;
+    margin-bottom: 30px;
+    min-height: 400px;
+}
+
+/* Welcome Container */
+.welcome-container {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.welcome-container p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+}
+
+.cta-buttons {
+    margin-top: 30px;
+}
+
+.primary-btn {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Auth Styles */
+.auth-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.auth-form {
+    margin-top: 20px;
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.ticket-actions {
+    margin-bottom: 20px;
+}
+
+.tickets-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+/* Ticket Card Styles */
+.ticket-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 4px solid var(--primary-color);
+    cursor: grab; /* Show grab cursor to indicate draggable */
+}
+
+.ticket-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Styles for drag-and-drop states */
+.ticket-card-ghost {
+    opacity: 0.3;
+    background: var(--secondary-color);
+    transform: scale(0.92);
+    transition: transform 0.3s;
+}
+
+.ticket-card-chosen {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05) rotate(2deg);
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.ticket-card-drag {
+    cursor: grabbing;
+    transform-origin: top center;
+    animation: extreme-dangle 0.4s infinite alternate;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.ticket-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.ticket-status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.status-tag {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.status-tag.completed {
+    background-color: var(--success-color);
+}
+
+.status-tag.pending {
+    background-color: var(--pending-color);
+}
+
+.ticket-actions-menu {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.ticket-actions-menu button {
+    background: none;
+    color: var(--primary-dark);
+    padding: 5px;
+    font-size: 14px;
+}
+
+.ticket-actions-menu button:hover {
+    text-decoration: underline;
+    background: none;
+}
+
+.pinned-ticket {
+    border-left: 4px solid #bea888;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Extreme Dangle Animation */
+@keyframes extreme-dangle {
+    0% {
+        transform: rotate(-3deg) translateY(0) translateX(-2px);
+    }
+    20% {
+        transform: rotate(4deg) translateY(4px) translateX(3px);
+    }
+    40% {
+        transform: rotate(-5deg) translateY(-2px) translateX(-4px);
+    }
+    60% {
+        transform: rotate(3deg) translateY(6px) translateX(2px);
+    }
+    80% {
+        transform: rotate(-2deg) translateY(-3px) translateX(-1px);
+    }
+    100% {
+        transform: rotate(5deg) translateY(5px) translateX(5px);
+    }
+}
+
+/* Dangle Animation Keyframes */
+@keyframes dangle {
+    0% {
+        transform: rotate(-1deg) translateY(0);
+    }
+    25% {
+        transform: rotate(0.5deg) translateY(2px);
+    }
+    50% {
+        transform: rotate(0deg) translateY(0);
+    }
+    75% {
+        transform: rotate(-0.5deg) translateY(1px);
+    }
+    100% {
+        transform: rotate(1deg) translateY(2px);
+    }
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Checkbox Styles */
+.checkboxes-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 15px;
+    background-color: var(--light-bg);
+}
+
+.checkbox-group {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group:last-child {
+    margin-bottom: 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+#cancelTicketBtn {
+    background-color: #e2e8f0;
+    color: var(--text-color);
+}
+
+#cancelTicketBtn:hover {
+    background-color: #cbd5e0;
+}
+
+/* Responsive design for different screen sizes */
+@media (max-width: 768px) {
+    .tickets-list {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
+    
+    .ticket-card {
+        padding: 10px;
+    }
+    
+    .ticket-title {
+        font-size: 0.9rem;
+    }
+    
+    .status-tag {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tickets-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .ticket-card {
+        padding: 8px;
+    }
+    
+    .ticket-creator {
+        font-size: 0.8rem;
+    }
+}
+
+/* Insertion indicator for drag and drop */
+.insertion-indicator {
+    position: fixed;
+    width: 4px;
+    background-color: var(--primary-dark);
+    z-index: 1000;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    display: none;
+    pointer-events: none;
+}
+
+/* Hide the ghost element completely */
+.hidden {
+    display: none !important;
+}
